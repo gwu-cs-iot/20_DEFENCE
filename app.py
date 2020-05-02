@@ -4,6 +4,7 @@ from tello import Tello
 
 app = Flask(__name__)
 tello = Tello()
+tello.initialize()
 
 @app.route('/drone/command/takeoff', methods=['POST'])
 def drone_takeoff():
@@ -19,6 +20,6 @@ def drone_land():
     return jsonify({'status': 'OK'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    tello.initialize()
+    app.run(debug=False, host='10.0.0.3')
+    tello.end()
 

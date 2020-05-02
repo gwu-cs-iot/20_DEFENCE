@@ -26,3 +26,6 @@ class Tello:
     
     def land(self):
         self.send_command('land')
+
+    def end(self):
+        self.socket.close()
